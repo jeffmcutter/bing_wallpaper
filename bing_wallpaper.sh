@@ -39,16 +39,16 @@ picOpts="zoom"
 picExt=".jpg"
 
 function get_size {
-    SIZE=$(DISPLAY=:0 xdpyinfo 2> /dev/null | awk '$1=="dimensions:" {print $2}' | awk -Fx '{print $2}')
+#    SIZE=$(DISPLAY=:0 xdpyinfo 2> /dev/null | awk '$1=="dimensions:" {print $2}' | awk -Fx '{print $2}')
     PREFER="_1920x1080"
 
-    if [ -n "$SIZE" ]
-    then
-	if [ "$SIZE" -gt 1080 ]
-	then
-	    PREFER="_1920x1200 _1920x1080"
-	fi
-    fi
+#    if [ -n "$SIZE" ]
+#    then
+#	    if [ "$SIZE" -gt 1080 ]
+#	    then
+#	        PREFER="_1920x1200 _1920x1080"
+#	    fi
+#    fi
 }
 
 # Download the highest resolution
