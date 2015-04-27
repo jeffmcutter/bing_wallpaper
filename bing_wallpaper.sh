@@ -51,6 +51,22 @@ function get_size {
 #    fi
 }
 
+# Wait a while until we can reach Bing for running at startup over WiFi.
+
+PING=""
+
+until [ "$PING" == "good" ]
+do
+    ping -c 1 $bing > /dev/null 2>&1
+    if [ $? -eq 0 ]
+    then
+        PING="good"
+    else
+        echo "$bing not reachable.  Will continue to retry..."
+    fi
+    sleep 5
+done
+
 # Download the highest resolution
 TOMORROW=$(date --date="tomorrow" +%Y-%m-%d)
 TOMORROW=$(date --date="$TOMORROW 00:10:00" +%s)
