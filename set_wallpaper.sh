@@ -7,7 +7,7 @@
 # Modified to just set wallpaper passed as arg by Jeffrey Cutter.
 
 function usage {
-  print "USAGE: $(basename $0) picture_location"
+  echo "USAGE: $(basename $0) picture_location"
   exit 1
 }
 
