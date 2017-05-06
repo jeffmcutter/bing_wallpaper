@@ -54,6 +54,12 @@ function get_size {
 # Wait a while until we can reach Bing for running at startup over WiFi.
 
 PING=""
+#PING=good
+
+if [ "$1" == "-n" ]
+then
+  PING="good"
+fi
 
 until [ "$PING" == "good" ]
 do
