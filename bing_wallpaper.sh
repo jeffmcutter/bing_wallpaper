@@ -7,6 +7,14 @@
 # Switched up by:
 # Author: Jeffrey Cutter
 
+which tcping > /dev/null 2>&1
+if [ $? -ne 0 ]
+then
+  echo "Please install tcping command"
+  sleep 3
+  exit 1
+fi
+
 # $bing is needed to form the fully qualified URL for
 # the Bing pic of the day
 bing="www.bing.com"
@@ -63,7 +71,7 @@ fi
 
 until [ "$PING" == "good" ]
 do
-    ping -c 1 $bing > /dev/null 2>&1
+    tcping -q -t 5 -u 5 $bing 80
     if [ $? -eq 0 ]
     then
         PING="good"
