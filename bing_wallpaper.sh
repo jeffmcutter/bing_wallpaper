@@ -7,13 +7,13 @@
 # Switched up by:
 # Author: Jeffrey Cutter
 
-which tcping > /dev/null 2>&1
-if [ $? -ne 0 ]
-then
-  echo "Please install tcping command"
-  sleep 3
-  exit 1
-fi
+#which tcping > /dev/null 2>&1
+#if [ $? -ne 0 ]
+#then
+#  echo "Please install tcping command"
+#  sleep 3
+#  exit 1
+#fi
 
 # $bing is needed to form the fully qualified URL for
 # the Bing pic of the day
@@ -62,7 +62,7 @@ function get_size {
 # Wait a while until we can reach Bing for running at startup over WiFi.
 
 PING=""
-#PING=good
+PING="good"
 
 if [ "$1" == "-n" ]
 then
@@ -99,7 +99,7 @@ for picRes in $PREFER _1366x768 _1280x720 _1024x768; do
     # This shit is confusing, and it's not working.
     #picName=${picURL#*2f}
     # This is easy to understand, and it works! -JMC 20150324
-    picName=$(basename $picURL)
+    picName=$(basename $picURL | sed 's/th?id=OHR.//')
 
     # Download the Bing pic of the day
     curl -s -o $saveDir$picName $picURL
