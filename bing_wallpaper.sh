@@ -48,7 +48,9 @@ picExt=".jpg"
 
 function get_size {
 #    SIZE=$(DISPLAY=:0 xdpyinfo 2> /dev/null | awk '$1=="dimensions:" {print $2}' | awk -Fx '{print $2}')
-    PREFER="_1920x1080"
+    # PREFER="_1920x1080"
+    PREFER="_UHD"
+    # https://www.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1
 
 #    if [ -n "$SIZE" ]
 #    then
